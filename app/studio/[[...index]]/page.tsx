@@ -4,12 +4,6 @@ import { NextStudio } from "next-sanity/studio"
 import config from "../../../sanity.config"
 
 export default function StudioPage() {
-  return (
-    <NextStudio
-      config={config}
-      // Add these props to help with the error
-      unstable_noAuthBoundary
-      unstable_globalStyles
-    />
-  )
+  // For static export, we need to ensure the studio is properly configured
+  return <NextStudio config={config} unstable_noAuthBoundary unstable_globalStyles />
 }
