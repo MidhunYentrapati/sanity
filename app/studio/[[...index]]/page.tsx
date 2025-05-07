@@ -1,9 +1,20 @@
-"use client"
+import StudioPageClient from "./StudioPageClient"
 
-import { NextStudio } from "next-sanity/studio"
-import config from "../../../sanity.config"
+// This function tells Next.js which paths to pre-render for static export
+export function generateStaticParams() {
+  return [
+    { index: [] }, // /studio
+    { index: ["desk"] }, // /studio/desk
+    { index: ["vision"] }, // /studio/vision
+    { index: ["structure"] }, // /studio/structure
+    { index: ["schema"] }, // /studio/schema
+    { index: ["settings"] }, // /studio/settings
+    { index: ["desk", "post"] }, // /studio/desk/post
+    { index: ["desk", "author"] }, // /studio/desk/author
+    { index: ["desk", "category"] }, // /studio/desk/category
+  ]
+}
 
 export default function StudioPage() {
-  // For static export, we need to ensure the studio is properly configured
-  return <NextStudio config={config} unstable_noAuthBoundary unstable_globalStyles />
+  return <StudioPageClient />
 }

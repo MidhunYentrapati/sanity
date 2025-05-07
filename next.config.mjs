@@ -11,10 +11,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Specify the output directory
-  distDir: 'dist',
-  // Ensure output is exported as static files
-  output: 'export',
+  // Use the default .next directory instead of dist
+  // Remove the output: 'export' to use server-side rendering
 }
 
 export default nextConfig
